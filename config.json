@@ -1,0 +1,17 @@
+{
+	"layers": {
+		"contour": { "minzoom": 11, "maxzoom": 12 }
+	},
+	"settings": {
+		"minzoom": 11,
+		"maxzoom": 14,
+		"basezoom": 14,
+		"include_ids": false,
+		"name": "kcwu contour",
+		"version": "0.1",
+		"description": "Contour from MOI, used for Rudymap",
+		"compress": "none",
+		"metadata": {
+		}
+	}
+}
