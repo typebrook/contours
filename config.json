@@ -1,6 +1,7 @@
 {
 	"layers": {
-		"contour":     { "minzoom":  9, "maxzoom":  9 },
+		"contour":     { "minzoom":  9, "maxzoom": 14 },
+		"contour_z9":  { "minzoom":  9, "maxzoom":  9 , "write_to": "contour" },
 		"contour_z10": { "minzoom": 10, "maxzoom": 10 , "write_to": "contour" },
 		"contour_z11": { "minzoom": 11, "maxzoom": 11 , "write_to": "contour" },
 		"contour_z12": { "minzoom": 12, "maxzoom": 12 , "write_to": "contour" },
@@ -8,15 +9,13 @@
 		"contour_z14": { "minzoom": 14, "maxzoom": 14 , "write_to": "contour" }
 	},
 	"settings": {
-		"minzoom": 11,
-		"maxzoom": 14,
+		"minzoom":  11,
+		"maxzoom":  14,
 		"basezoom": 14,
 		"include_ids": false,
 		"name": "kcwu contour",
 		"version": "0.1",
 		"description": "Contour from MOI, used for Rudymap",
-		"compress": "none",
-		"metadata": {
-		}
+		"compress": "none"
 	}
 }

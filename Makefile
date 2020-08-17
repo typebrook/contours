@@ -4,5 +4,5 @@ contour.o5m:
 contour.osm.pbf: contour.o5m
 	osmconvert --out-pbf $< >$@
 
-tiles/: contour.osm.pbf
+tiles: contour.osm.pbf
 	tilemaker --input $< --output $@

@@ -16,22 +16,31 @@ end
 
 -- Similarly for ways
 
-function way_function(way)
-	local ele = way:Find("ele")
-    local interval = nil
-    if     ele % 500 == 0 then way:Layer("contour",     false); interval = 500
-    elseif ele % 200 == 0 then way:Layer("contour_z10", false); interval = 200
-    elseif ele % 100 == 0 then way:Layer("contour_z11", false); interval = 100
-    elseif ele %  50 == 0 then way:Layer("contour_z12", false); interval =  50
-    elseif ele %  20 == 0 then way:Layer("contour_z13", false); interval =  20
-    else                       way:Layer("contour_z14", false); interval =  10
-    end
-    way:AttributeNumeric("height", ele)
 
-    local index = ele / interval
-    if     index % 10 == 0 then way:AttributeNumeric("nth_line", 10)
-    elseif index %  5 == 0 then way:AttributeNumeric("nth_line",  5)
-    elseif index %  2 == 0 then way:AttributeNumeric("nth_line",  2)
-    else                        way:AttributeNumeric("nth_line",  1)
+function way_function(way)
+    local intervals = {
+        z9 =500,
+        z10=200,
+        z11=100,
+        z12=50,
+        z13=20,
+        z14=10
+    }
+	local ele = way:Find("ele")
+
+    for zoom, interval in pairs(intervals) do
+
+        if (ele % interval == 0) then 
+            way:Layer("contour_" .. zoom, false)
+            way:AttributeNumeric("height", ele)
+
+            local index = ele / interval
+            if     index % 10 == 0 then way:AttributeNumeric("nth_line", 10)
+            elseif index %  5 == 0 then way:AttributeNumeric("nth_line",  5)
+            elseif index %  2 == 0 then way:AttributeNumeric("nth_line",  2)
+            else                        way:AttributeNumeric("nth_line",  1)
+            end
+        end
     end
+
 end
